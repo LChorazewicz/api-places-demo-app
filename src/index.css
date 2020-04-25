@@ -11,10 +11,9 @@ body {
     text-align: center;
     margin-top: 60px;
     margin-left: calc(50% - 300px);
-    width: 500px;
+    width: 300px;
+    max-width: 600px !important;
     height: 300px;
-    border: 1px solid black;
-    padding: 10px 0;
 }
 
 .provinces, .communes, .countries, .cities, .streets {

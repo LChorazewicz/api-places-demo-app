@@ -68,7 +68,7 @@ export default class App extends React.Component {
                     <Streets httpService={this.httpService} handler={this.handleSelectStreetEvent.bind(this)}
                              cityId={this.state.cityId}/>
                 </div>
-                <div className={'container'} style={{height: '150px', lineHeight: 1.4, padding: '15px'}}><br/>
+                <div className={'container'} style={{height: '150px', lineHeight: 1.4}}><br/>
                     Wybrano:
                     {this.state.provinceName ?? ' -- '};
                     {this.state.communeName ?? ' -- '};
