@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `deploy`
+PUBLIC_URL=https://apps.softwareservice.pl/places npm run build
 
 ## Available Scripts
 
