@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import ConfigProvider from "./ConfigProvider";
 import ApiRestService from "./Service/ApiRestService";
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
 
 const config = new ConfigProvider(),
     http = new ApiRestService(config)
