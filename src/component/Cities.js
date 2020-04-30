@@ -34,7 +34,7 @@ export class Cities extends React.Component {
     render() {
         return (
             <div className='cities'>
-                <select name='cities' id='cities' className={'browser-default custom-select'}
+                <select name='cities' id='cities' className={'browser-default custom-select2'}
                         onChange={e => this.handleEvent(e)}
                         disabled={this.state.cities.length === 0}>
                     {this.state.cities.map(city => (

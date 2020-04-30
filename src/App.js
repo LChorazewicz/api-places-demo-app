@@ -56,33 +56,70 @@ export default class App extends React.Component {
 
         return (
             <div className="App">
+                <nav className="navbar navbar-light bg-light">
+                    <a className="navbar-brand" href="/">
+                        <div className="image" />
+                    </a>
+                </nav>
                 <div className={'container'}>
-                    Api Places demo app<br/>
-                    <Provinces httpService={this.httpService} handler={this.handleSelectProvinceEvent.bind(this)}/>
-                    <Communes httpService={this.httpService} handler={this.handleSelectCommuneEvent.bind(this)}
-                              provinceId={this.state.provinceId}/>
-                    <Countries httpService={this.httpService} handler={this.handleSelectCountryEvent.bind(this)}
-                               communeId={this.state.communeId}/>
-                    <Cities httpService={this.httpService} handler={this.handleSelectCityEvent.bind(this)}
-                            countryId={this.state.countryId}/>
-                    <Streets httpService={this.httpService} handler={this.handleSelectStreetEvent.bind(this)}
-                             cityId={this.state.cityId}/>
-                </div>
-                <div className={'container'} style={{height: '150px', lineHeight: 1.4}}><br/>
-                    Wybrano:
-                    {this.state.provinceName ?? ' -- '};
-                    {this.state.communeName ?? ' -- '};
-                    {this.state.countryName ?? ' -- '};
-                    {this.state.cityName ?? ' -- '};
-                    {this.state.streetName ?? ' -- '};
+                    <div className="row">
+                        <div className="col-md">
+                            <h1 className={'textAlignLeft'} style={{fontFamily: 'Lato', fontWeight: 700}}>PlacesAPI z aktualną
+                                listą <br/>wszystkich miejscowości i ulic w Polsce.</h1>
+                            <h3 className={'textAlignLeft'}
+                                style={{fontFamily: 'Lato Light', fontWeight: 400, fontSize: '20px'}}>Zintegruj się z
+                                PlacesAPI lub podepnij PlacesWidget<br/>na swojej stronie internetowej.</h3>
+                            <br/>
+                            <a className={'floatLeft btn registerButton col-sm-12 col-md-12 col-lg-12 col-xl-6'}
+                               style={{fontFamily: 'Lato', fontWeight: 700}} color={'orange'} href={'/register'}>Załóż
+                                darmowe konto</a>
 
-                    <br/> <br/>
-                    Wybrano:
-                    {provinceId && provinceId !== 0 ? provinceId : ' -- '};
-                    {communeId && communeId !== 0 ? communeId : ' -- '};
-                    {countryId && countryId !== 0 ? countryId : ' -- '};
-                    {cityId && cityId !== 0 ? cityId : ' -- '};
-                    {streetId && streetId !== 0 ? streetId : ' -- '};
+                        </div>
+                        <div className="col-md">
+                            <Provinces httpService={this.httpService}
+                                       handler={this.handleSelectProvinceEvent.bind(this)}/>
+                            <Communes httpService={this.httpService} handler={this.handleSelectCommuneEvent.bind(this)}
+                                      provinceId={this.state.provinceId}/>
+                            <Countries httpService={this.httpService} handler={this.handleSelectCountryEvent.bind(this)}
+                                       communeId={this.state.communeId}/>
+                            <Cities httpService={this.httpService} handler={this.handleSelectCityEvent.bind(this)}
+                                    countryId={this.state.countryId}/>
+                            <Streets httpService={this.httpService} handler={this.handleSelectStreetEvent.bind(this)}
+                                     cityId={this.state.cityId}/>
+                        </div>
+                    </div>
+                    <br/><br/>
+                    <div className="row">
+                        <div className="col-md">
+                            <h4 className={'textAlignCenter'} style={{fontFamily: 'Lato', fontWeight: 400}}>Dane z PlacesAPI i PlacesWidget możesz zapisać w taki sposób</h4>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md">
+                            {this.state.provinceName ?? ' -- '};
+                            {this.state.communeName ?? ' -- '};
+                            {this.state.countryName ?? ' -- '};
+                            {this.state.cityName ?? ' -- '};
+                            {this.state.streetName ?? ' -- '};
+                        </div>
+                    </div>
+                    <br/>
+                    <div className="row">
+                        <div className="col-md">
+                            <h4 className={'textAlignCenter'} style={{fontFamily: 'Lato', fontWeight: 400}}>lub w taki sposób</h4>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md">
+                            {provinceId && provinceId !== 0 ? provinceId : ' -- '};
+                            {communeId && communeId !== 0 ? communeId : ' -- '};
+                            {countryId && countryId !== 0 ? countryId : ' -- '};
+                            {cityId && cityId !== 0 ? cityId : ' -- '};
+                            {streetId && streetId !== 0 ? streetId : ' -- '};
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         );

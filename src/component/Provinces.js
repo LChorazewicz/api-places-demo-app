@@ -24,7 +24,7 @@ export class Provinces extends React.Component {
     render() {
         return (
             <div className='provinces'>
-                <select name='provinces' id='provinces' className={'browser-default custom-select'}
+                <select name='provinces' id='provinces' className={'browser-default custom-select2'}
                         onChange={e => this.handleEvent(e)}
                         disabled={this.state.provinces.length === 0}>
                     {this.state.provinces.map(province => (
