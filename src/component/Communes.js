@@ -34,6 +34,7 @@ export class Communes extends React.Component {
     render() {
         return (
             <div className='communes'>
+                <label htmlFor="provinces" className={'textAlignLeft'}>Wybierz gminę</label>
                 <select name='communes' id='communes' className={'browser-default custom-select2'}
                         onChange={e => this.handleEvent(e)}
                         disabled={this.state.communes.length === 0} defaultValue={0}>

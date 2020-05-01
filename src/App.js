@@ -64,7 +64,7 @@ export default class App extends React.Component {
                 <div className={'container'}>
                     <div className="row">
                         <div className="col-md">
-                            <h1 className={'textAlignLeft'} style={{fontFamily: 'Lato', fontWeight: 700}}>PlacesAPI z aktualną
+                            <h1 className={'textAlignLeft'} style={{fontFamily: 'Lato', fontWeight: 700}}>API z aktualną
                                 listą <br/>wszystkich miejscowości i ulic w Polsce.</h1>
                             <h3 className={'textAlignLeft'}
                                 style={{fontFamily: 'Lato Light', fontWeight: 400, fontSize: '20px'}}>Zintegruj się z
@@ -118,8 +118,6 @@ export default class App extends React.Component {
                             {streetId && streetId !== 0 ? streetId : ' -- '};
                         </div>
                     </div>
-
-
                 </div>
             </div>
         );

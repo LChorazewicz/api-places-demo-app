@@ -34,6 +34,7 @@ export class Streets extends React.Component {
     render() {
         return (
             <div className='streets'>
+                <label htmlFor="countries">Wybierz ulicę</label>
                 <select name='streets' id='streets' className={'browser-default custom-select2'}
                         onChange={e => this.handleEvent(e)}
                         disabled={this.state.streets.length === 0}>

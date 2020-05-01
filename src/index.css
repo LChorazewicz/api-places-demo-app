@@ -73,3 +73,10 @@ a.registerButton{
     vertical-align: -44%;
     font-family: 'Lato Light', serif;
 }
+
+label{
+    margin: 0 !important;
+    float: left;
+    text-indent: 2px;
+    font-size: 11px;
+}

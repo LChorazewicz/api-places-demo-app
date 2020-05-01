@@ -24,6 +24,7 @@ export class Provinces extends React.Component {
     render() {
         return (
             <div className='provinces'>
+                <label htmlFor="provinces">Wybierz województwo</label>
                 <select name='provinces' id='provinces' className={'browser-default custom-select2'}
                         onChange={e => this.handleEvent(e)}
                         disabled={this.state.provinces.length === 0}>
