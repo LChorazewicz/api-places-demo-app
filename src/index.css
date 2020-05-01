@@ -13,7 +13,7 @@ body, html {
 }
 
 .provinces, .communes, .countries, .cities, .streets {
-    margin-top: 10px;
+    margin-top: 5px;
     padding: 0 5px;
 }
 
@@ -33,8 +33,10 @@ body, html {
 .floatLeft{
     float: left;
 }
-
-a.registerButton{
+a, input[type='checkbox']{
+    outline: none;
+}
+a.registerButton, button.registerButton{
     background-color: #e3ab40;
     color: white;
     font-weight: 900;
@@ -74,9 +76,36 @@ a.registerButton{
     font-family: 'Lato Light', serif;
 }
 
-label{
+.leftLabel{
     margin: 0 !important;
     float: left;
     text-indent: 2px;
     font-size: 11px;
+}
+
+.step{
+    height: 50px;
+    margin: 30px auto;
+    line-height: 50px;
+}
+
+.actual-step-container{
+    display: flex;
+}
+
+.actual-step{
+    background-color: #e3ab40;
+    width: calc(100% - 10px);
+    height: 50px;
+    margin: 30px auto;
+    line-height: 50px;
+}
+
+.actual-step-arrow{
+    content: '';
+    height: 0;
+    border-style: solid;
+    border-width: 25px 0 25px 15px;
+    border-color: transparent transparent transparent #e3ab40;
+    margin-top: 30px;
 }

@@ -14,6 +14,7 @@ ReactDOM.render(
     <React.StrictMode>
         <App
             apiRestService={http}
+            config={config}
         />
     </React.StrictMode>,
     document.getElementById('root')
