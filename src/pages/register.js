@@ -10,11 +10,12 @@ export default class Register extends React.Component {
         const email = event.target.email.value,
             phone = event.target.phone.value,
             password = event.target.password.value,
+            name = event.target.name.value,
             regulationsAccepted = event.target.regulation.value === 'on';
 
         let formIsValid = true;
 
-        if (formIsValid && !(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
+        if (formIsValid && (!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) || email.length > 128)) {
             formIsValid = false;
         }
 
@@ -30,13 +31,18 @@ export default class Register extends React.Component {
             formIsValid = false;
         }
 
+        if (formIsValid && (name.length < 2 || name.length > 32)) {
+            formIsValid = false;
+        }
+
         if (formIsValid) {
             this.props.httpService.post(`/register`,
                 JSON.stringify({
+                    name: name,
                     email: email,
                     phone: phone,
                     password: password,
-                    regulationsAccepted: regulationsAccepted,
+                    regulations_accepted: regulationsAccepted,
                 })
             ).then(res => {
                 window.location.href = '/registered'
@@ -51,9 +57,14 @@ export default class Register extends React.Component {
                 <form className={'col-md-6'} onSubmit={event => this.handleRegister(event)}>
                     <h3>Rejestracja</h3>
                     <div className="form-group">
+                        <label htmlFor="name" className={'leftLabel'}>Imie</label>
+                        <input type="text" className="form-control" id="name"
+                               required={true}/>
+                    </div>
+                    <div className="form-group">
                         <label htmlFor="email" className={'leftLabel'}>Email</label>
                         <input type="email" className="form-control" id="email"
-                               aria-describedby="emailHelp" required={true}/>
+                               required={true}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="phone" className={'leftLabel'}>Numer telefonu</label>
