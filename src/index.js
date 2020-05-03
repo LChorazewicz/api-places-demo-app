@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ConfigProvider from "./ConfigProvider";
 import ApiRestService from "./service/ApiRestService";
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 
 const config = new ConfigProvider(),
     http = new ApiRestService(config)
