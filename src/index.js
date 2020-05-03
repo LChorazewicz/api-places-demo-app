@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ConfigProvider from "./ConfigProvider";
-import ApiRestService from "./Service/ApiRestService";
+import ApiRestService from "./service/ApiRestService";
 import 'bootstrap/dist/css/bootstrap.css';
 
 const config = new ConfigProvider(),

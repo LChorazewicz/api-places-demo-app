@@ -21,7 +21,6 @@ body, html {
     text-align: left;
 }
 
-
 .textAlignRight{
     text-align: right;
 }
@@ -73,7 +72,14 @@ a.registerButton, button.registerButton{
     content: 'PlacesApi';
     margin-left: 42px;
     vertical-align: -44%;
-    font-family: 'Lato Light', serif;
+    font-family: 'Lato', serif;
+    font-weight: 500;
+    color: #e3ab40 !important;
+}
+
+.navbar.fixed-bottom{
+    background-color: #c0c0c0;
+    padding: 50px 0;
 }
 
 .leftLabel{
@@ -108,4 +114,10 @@ a.registerButton, button.registerButton{
     border-width: 25px 0 25px 15px;
     border-color: transparent transparent transparent #e3ab40;
     margin-top: 30px;
+}
+
+.orange-text-color {
+    color: #e3ab40 !important;
+    font-family: 'Lato', serif;
+    font-weight: 500;
 }
