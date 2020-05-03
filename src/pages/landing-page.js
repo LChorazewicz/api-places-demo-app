@@ -59,14 +59,14 @@ export default class LandingPage extends React.Component {
             <div>
                 <div className="row">
                     <div className="col-md">
-                        <h1 className={'textAlignLeft'} style={{fontFamily: 'Lato', fontWeight: 700}}>API z aktualną
+                        <h1 className={'textAlignLeft'} style={{fontFamily: 'StandardLatoFont', paddingTop: '12px'}}>API z aktualną
                             listą <br/>wszystkich miejscowości i ulic w Polsce.</h1>
                         <h3 className={'textAlignLeft'}
-                            style={{fontFamily: 'Lato Light', fontWeight: 400, fontSize: '20px'}}>Zintegruj się z
+                            style={{fontFamily: 'LightLatoFont', fontSize: '20px'}}>Zintegruj się z
                             PlacesAPI lub podepnij PlacesWidget<br/>na swojej stronie internetowej.</h3>
                         <br/>
                         <Link to={'/register'} className={'floatLeft btn registerButton col-sm-12 col-md-12 col-lg-12 col-xl-6'}
-                           style={{fontFamily: 'Lato', fontWeight: 700}} color={'orange'} href={'/register'}>Załóż
+                           style={{fontFamily: 'StandardLatoFont', fontWeight: 700}} color={'orange'} href={'/register'}>Załóż
                             darmowe konto</Link>
 
                     </div>
@@ -86,7 +86,7 @@ export default class LandingPage extends React.Component {
                 <br/><br/>
                 <div className="row">
                     <div className="col-md">
-                        <h4 className={'textAlignCenter'} style={{fontFamily: 'Lato', fontWeight: 400}}>Dane z PlacesAPI
+                        <h4 className={'textAlignCenter'} style={{fontFamily: 'LightLatoFont'}}>Dane z PlacesAPI
                             i PlacesWidget możesz zapisać w taki sposób</h4>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ export default class LandingPage extends React.Component {
                 <br/>
                 <div className="row">
                     <div className="col-md">
-                        <h4 className={'textAlignCenter'} style={{fontFamily: 'Lato', fontWeight: 400}}>lub w taki
+                        <h4 className={'textAlignCenter'} style={{fontFamily: 'LightLatoFont', fontWeight: 400}}>lub w taki
                             sposób</h4>
                     </div>
                 </div>

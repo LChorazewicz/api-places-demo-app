@@ -1,13 +1,28 @@
+@font-face {
+    font-family: StandardLatoFont;
+    src: url('/fonts/Lato-Black.ttf');
+}
+
+@font-face {
+    font-family: LightLatoFont;
+    src: url('/fonts/Lato-Light.ttf');
+}
+
 body, html {
     margin: 0;
-    font-family: 'Lato Light', serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #444444;
+    font-family: LightLatoFont, serif;
 }
 
-*{
-    font-family: 'Lato Light', serif;
+.bold-orange-link{
+    color: #e3ab40;
+    font-weight: 900;
+}
+
+.about-header{
+    font-weight: 900;
 }
 
 .container {
@@ -43,6 +58,7 @@ a.registerButton, button.registerButton{
     background-color: #e3ab40;
     color: white;
     font-weight: 900;
+    padding-top: 8px;
 }
 
 .custom-select2{
@@ -76,8 +92,8 @@ a.registerButton, button.registerButton{
     content: 'PlacesApi';
     margin-left: 42px;
     vertical-align: -44%;
-    font-family: 'Lato', serif;
-    font-weight: 500;
+    font-family: 'LightLatoFont', serif;
+    font-weight: 900;
     color: #e3ab40 !important;
 }
 
@@ -122,6 +138,6 @@ a.registerButton, button.registerButton{
 
 .orange-text-color {
     color: #e3ab40 !important;
-    font-family: 'Lato', serif;
-    font-weight: 500;
+    font-family: 'LightLatoFont', serif;
+    font-weight: 900;
 }

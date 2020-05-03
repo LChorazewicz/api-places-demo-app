@@ -81,7 +81,7 @@ export default class Register extends React.Component {
                             serwisu</Link></label>
                     </div>
                     <button className={'floatLeft btn registerButton col-md-12'}
-                            style={{fontFamily: 'Lato', fontWeight: 700}} color={'#e3ab40'}>Zarejestruj się
+                            style={{fontFamily: 'StandardLatoFont', fontWeight: 700}} color={'#e3ab40'}>Zarejestruj się
                     </button>
                 </form>
                 <div className="col-md-3"/>
