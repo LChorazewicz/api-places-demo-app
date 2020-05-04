@@ -1,10 +1,12 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import LandingPage from "./pages/landing-page";
 import Register from "./pages/register";
 import Regulations from "./pages/regulations";
 import Registered from "./pages/registered";
 import AboutProject from "./pages/about-project";
+import Header from "./component/Header";
+import Footer from "./component/Footer";
 
 export default class App extends React.Component {
 
@@ -17,34 +19,43 @@ export default class App extends React.Component {
         return (
             <Router>
                 <div className="App">
-                    <nav className="navbar navbar-light bg-light">
-                        <Link to={'/places'} className="navbar-brand">
-                            <div className="image"/>
-                        </Link>
-
-                        <Link to={'/about-project'} className="navbar-brand orange-text-color">
-                            O projekcie
-                        </Link>
-                    </nav>
-                    <div className={'container'} style={{minHeight: '100vh'}}>
-                        <Switch>
-                            <Route path={'/places'}>
+                    <Switch>
+                        <Route exact path={'/places'}>
+                            <Header/>
+                            <div className={'container h-100'} style={{minHeight: '100vh'}}>
                                 <LandingPage httpService={this.httpService}/>
-                            </Route>
-                            <Route path={'/register'}>
+                            </div>
+                            <Footer />
+                        </Route>
+                        <Route exact path={'/places/register'}>
+                            <Header/>
+                            <div className={'container h-100'} style={{minHeight: '100vh'}}>
                                 <Register httpService={this.httpService}/>
-                            </Route>
-                            <Route path={'/regulations'}>
+                            </div>
+                            <Footer />
+                        </Route>
+                        <Route exact path={'/places/regulations'}>
+                            <Header/>
+                            <div className={'container h-100'} style={{minHeight: '100vh'}}>
                                 <Regulations/>
-                            </Route>
-                            <Route path={'/registered'}>
+                            </div>
+                            <Footer />
+                        </Route>
+                        <Route exact path={'/places/registered'}>
+                            <Header/>
+                            <div className={'container h-100'} style={{minHeight: '100vh'}}>
                                 <Registered/>
-                            </Route>
-                            <Route path={'/about-project'}>
+                            </div>
+                            <Footer />
+                        </Route>
+                        <Route exact path={'/places/about-project'}>
+                            <Header/>
+                            <div className={'container h-100'} style={{minHeight: '100vh'}}>
                                 <AboutProject/>
-                            </Route>
-                        </Switch>
-                    </div>
+                            </div>
+                            <Footer />
+                        </Route>
+                    </Switch>
                 </div>
             </Router>
         );

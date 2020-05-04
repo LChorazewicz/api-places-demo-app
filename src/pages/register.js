@@ -45,7 +45,7 @@ export default class Register extends React.Component {
                     regulations_accepted: regulationsAccepted,
                 })
             ).then(res => {
-                window.location.href = '/registered'
+                window.location.href = '/places/registered'
             }).catch(error => console.log('error: ' + error))
         }
     }
@@ -77,7 +77,7 @@ export default class Register extends React.Component {
                     <div className="form-check floatLeft">
                         <input type="checkbox" className="form-check-input" id="regulation" required={true}/>
                         <label className="form-check-label" htmlFor="regulation">Znam i akceptuję <Link
-                            to={'/regulations'} style={{color: '#e3ab40', fontWeight: 900}}>regulamin
+                            to={'/places/regulations'} style={{color: '#e3ab40', fontWeight: 900}}>regulamin
                             serwisu</Link></label>
                     </div>
                     <button className={'floatLeft btn registerButton col-md-12'}

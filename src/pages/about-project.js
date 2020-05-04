@@ -8,7 +8,7 @@ export default class AboutProject extends React.Component {
                 <div className="row">
                     <div className="textAlignLeft col-md-12">
                         <h1 className={'textAlignCenter'}>PlacesApi & PlacesWidget</h1><br/>
-                        <section style={{fontSize: '24px', textAlign: 'justify'}}>
+                        <section style={{fontSize: '20px', textAlign: 'justify'}}>
                             <h4 className={'textAlignCenter about-header'}>Pomysł</h4>
                             Aplikacja PlacesApi powstała z potrzeby posiadania i weryfikacji danych adresowych naszych
                             klientów.
@@ -19,20 +19,14 @@ export default class AboutProject extends React.Component {
                             dane. <br/><br/><br/>
                             <h4 className={'textAlignCenter about-header'}>Potrzeba biznesowa</h4>
                             Idąc za ciosem, udostępniliśmy PlacesApi dla całego świata. Rejestrując się
-                            <Link to={'/register'} className={'bold-orange-link'} href={'/register'}> tutaj </Link>
+                            <Link to={'/places/register'} className={'bold-orange-link'} href={'/places/register'}> tutaj </Link>
                             możesz uzyskać dostęp do PlacesApi i zintegrować się z nim. Istnieje również możliwość
                             skorzystania z PlacesWidget
                             gdzie w 3 prostych krokach wstawisz gotowy formularz na swoją stronę, w którym można
                             określić adres zamieszkania/dostawy. Kliknij
-                            <Link to={'/register'} className={'bold-orange-link'}> tutaj </Link>
+                            <Link to={'/places'} className={'bold-orange-link'}> tutaj </Link>
                             Aby zobaczyć jak wygląda PlacesWidget.
                         </section>
-
-                        <br/><br/><br/><br/><br/>
-                        <h5 className={'textAlignRight'}>Aplikacja stworzona przez firmę <a
-                            href={'https://softwareservice.pl/'}
-                            className={'bold-orange-link'}>SoftwareService</a>.
-                        </h5>
                     </div>
                 </div>
 
