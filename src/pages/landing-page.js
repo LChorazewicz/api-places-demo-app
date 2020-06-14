@@ -3,6 +3,11 @@ import React from "react";
 
 export default class LandingPage extends React.Component {
 
+    state = {
+        provinceId: null, communeId: null, countryId: null, cityId: null, streetId: null,
+        provinceName: null, communeName: null, countryName: null, cityName: null, streetName: null,
+    }
+
     constructor(props) {
         super(props);
         this.httpService = this.props.httpService;
@@ -16,17 +21,20 @@ export default class LandingPage extends React.Component {
                 'YUs55qufDEcmQWU5FkQvhZ99A7DyTaMgseVJy9rqEWJFZnWLHnNMu0bz3ur4v2mJqM1ssVVlXEPBdWCbiCpHeLuULiylP5a9GXq4y93' +
                 'FXIrK8qp5n5CR-ubn1nxW7JGOcaOXAaWuWxwi_EakFX0yeupJZThTMTh3V07A';
 
-        (function (id, token) {
+        let $this = this;
+        (function (id, token, callback) {
             let widget = setInterval(function () {
                 // eslint-disable-next-line no-undef
                 let instance = typeof PlacesWidget !== 'undefined' ? PlacesWidget.default : null;
                 if(!instance){
                     return;
                 }
-                (instance.new({id: id, token: token})).render();
+                (instance.new({id: id, token: token, callback: callback})).render();
                 clearInterval(widget);
             }, 0);
-        })(id, token);
+        })(id, token, function (array) {
+            $this.setState(array);
+        });
     }
 
     render() {
@@ -60,11 +68,11 @@ export default class LandingPage extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-md">
-                        {/*{this.state.provinceName ?? ' -- '};*/}
-                        {/*{this.state.communeName ?? ' -- '};*/}
-                        {/*{this.state.countryName ?? ' -- '};*/}
-                        {/*{this.state.cityName ?? ' -- '};*/}
-                        {/*{this.state.streetName ?? ' -- '};*/}
+                        {this.state.provinceName ?? ' -- '};
+                        {this.state.communeName ?? ' -- '};
+                        {this.state.countryName ?? ' -- '};
+                        {this.state.cityName ?? ' -- '};
+                        {this.state.streetName ?? ' -- '};
                     </div>
                 </div>
                 <br/>
@@ -77,11 +85,11 @@ export default class LandingPage extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-md">
-                        {/*{provinceId && provinceId !== 0 ? provinceId : ' -- '};*/}
-                        {/*{communeId && communeId !== 0 ? communeId : ' -- '};*/}
-                        {/*{countryId && countryId !== 0 ? countryId : ' -- '};*/}
-                        {/*{cityId && cityId !== 0 ? cityId : ' -- '};*/}
-                        {/*{streetId && streetId !== 0 ? streetId : ' -- '};*/}
+                        {this.state.provinceId && this.state.provinceId !== 0 ? this.state.provinceId : ' -- '};
+                        {this.state.communeId && this.state.communeId !== 0 ? this.state.communeId : ' -- '};
+                        {this.state.countryId && this.state.countryId !== 0 ? this.state.countryId : ' -- '};
+                        {this.state.cityId && this.state.cityId !== 0 ? this.state.cityId : ' -- '};
+                        {this.state.streetId && this.state.streetId !== 0 ? this.state.streetId : ' -- '};
                     </div>
                 </div>
             </div>
