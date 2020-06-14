@@ -10,7 +10,30 @@
     <meta name="keywords"
           content="Api miejscowości, api ulic, places api, streets api, miejscowości, ulice, widget miejscowości, mapa miejscowości, softwareservice.pl software service"/>
     <title>PlacesApi & PlacesWidget</title>
-    <script src="http://localhost:3000/widget.js" type="text/javascript"></script>
+    <script>
+        let xmlHttp = new XMLHttpRequest(),
+            url = 'http://api.softwareservice.local:81/rest/v1/places/widget';
+
+        xmlHttp.open("GET", url, true);
+        xmlHttp.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODczMDM3NTEs" +
+            "ImV4cCI6MTYxMDE5OTc1MSwiYWNjb3VudF91dWlkIjoibC5jaG9yYXpld2ljejEyIn0.kSSOPPW6O3dBMD_DX-xHIXrGbmhuR97lhGMu_" +
+            "MRt1F1S9-42sZWp_xYvwszWpM6j7VAVDmPS3JdhHIufw_HBVYzYH8oOqRBhFFo0Q8yE9ltpDA6Kf8LLVkSIWUH74Yy9jAbuoILIAQpdTE1f" +
+            "orCtcP653hh_W3o9xtPXkWvAzNy_ttcod-YUs55qufDEcmQWU5FkQvhZ99A7DyTaMgseVJy9rqEWJFZnWLHnNMu0bz3ur4v2mJqM1ssVVlX" +
+            "EPBdWCbiCpHeLuULiylP5a9GXq4y93FXIrK8qp5n5CR-ubn1nxW7JGOcaOXAaWuWxwi_EakFX0yeupJZThTMTh3V07A");
+        xmlHttp.send(null);
+
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState !== 4) {
+                return;
+            }
+
+            let js = xmlHttp.response,
+                oScript = document.createElement("script"),
+                oScriptText = document.createTextNode(js);
+            oScript.appendChild(oScriptText);
+            document.body.appendChild(oScript);
+        }
+    </script>
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
