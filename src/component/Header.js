@@ -10,9 +10,14 @@ export default class Header extends React.Component {
                         <div className="image"/>
                     </Link>
 
-                    <Link to={'/places/about-project'} className="navbar-brand orange-text-color">
-                        O projekcie
-                    </Link>
+                    <div className={'d-flex flex-nowrap'}>
+                        <Link to={'/places/about-project'} className="navbar-brand orange-text-color order-2 p-2">
+                            O projekcie
+                        </Link>
+                        <Link to={'/places/login'} className="navbar-brand orange-text-color order-1 p-2">
+                            Logowanie
+                        </Link>
+                    </div>
                 </nav>
             </div>
         );

@@ -109,14 +109,25 @@ a.registerButton, button.registerButton{
     font-size: 11px;
 }
 
+.step-container{
+    display: flex;
+}
+
 .step{
+    background-color: #eeeeee;
+    border: 1px solid #eeeeee;
+    width: calc(100% - 10px);
     height: 50px;
     margin: 30px auto;
     line-height: 50px;
 }
 
-.actual-step-container{
-    display: flex;
+.step-arrow{
+    height: 0;
+    border-style: solid;
+    border-width: 25px 0 25px 15px;
+    border-color: transparent transparent transparent #eeeeee;
+    margin-top: 30px;
 }
 
 .actual-step{
@@ -128,7 +139,6 @@ a.registerButton, button.registerButton{
 }
 
 .actual-step-arrow{
-    content: '';
     height: 0;
     border-style: solid;
     border-width: 25px 0 25px 15px;
@@ -140,4 +150,11 @@ a.registerButton, button.registerButton{
     color: #e3ab40 !important;
     font-family: 'LightLatoFont', serif;
     font-weight: 900;
+}
+.payment-method{
+    transition: background-color 0.2s linear;
+    border: 1px solid #e8e8e8;
+}
+.payment-method:hover{
+    background-color: #eeeeee;
 }

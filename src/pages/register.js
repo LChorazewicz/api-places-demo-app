@@ -2,6 +2,9 @@ import * as React from "react";
 import {Link} from "react-router-dom";
 
 export default class Register extends React.Component {
+    state = {
+        lastError: ''
+    }
 
     handleRegister(event) {
         event.preventDefault();
@@ -46,16 +49,31 @@ export default class Register extends React.Component {
                 })
             ).then(res => {
                 window.location.href = '/places/registered'
-            }).catch(error => console.log('error: ' + error))
+            }).catch((rawResponse) => {
+                const message = rawResponse.response.data.error;
+
+                if (message) {
+                    this.setState({'lastError': message});
+                }
+            })
         }
     }
 
     render() {
+        let errorMessage = '';
+
+        if(this.state.lastError){
+            errorMessage = <div className="alert alert-danger" role="alert" style={{lineHeight: '19px'}}>
+                {this.state.lastError}
+            </div>
+        }
+
         return (
             <div className={'row'}>
                 <div className="col-md-3"/>
                 <form className={'col-md-6'} onSubmit={event => this.handleRegister(event)}>
                     <h3>Rejestracja</h3>
+                    {errorMessage}
                     <div className="form-group">
                         <label htmlFor="name" className={'leftLabel'}>Imie</label>
                         <input type="text" className="form-control" id="name"

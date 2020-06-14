@@ -6,13 +6,16 @@ import ConfigProvider from "./ConfigProvider";
 import ApiRestService from "./service/ApiRestService";
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
+import AccountConfigProvider from "./AccountConfigProvider";
 const config = new ConfigProvider(),
-    http = new ApiRestService(config)
+    http = new ApiRestService(config),
+    accountHttp = new ApiRestService(new AccountConfigProvider());
 
 ReactDOM.render(
     <React.StrictMode>
         <App
             apiRestService={http}
+            apiAccountRestService={accountHttp}
             config={config}
         />
     </React.StrictMode>,

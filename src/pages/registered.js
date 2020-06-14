@@ -10,12 +10,15 @@ export default class Registered extends React.Component {
                         <h1 style={{marginTop: '50px'}}> Potwierdzenie rejestracji </h1>
                     </div>
                     <div className="col-md-4">
-                        <div className="step">
-                            Rejestracja
+                        <div className="step-container">
+                            <div className="step">
+                                Rejestracja
+                            </div>
+                            <div className="step-arrow" />
                         </div>
                     </div>
                     <div className="col-md-4">
-                        <div className="actual-step-container">
+                        <div className="step-container">
                             <div className="actual-step">
                                 Potwierdzenie rejestracji
                             </div>
@@ -23,8 +26,11 @@ export default class Registered extends React.Component {
                         </div>
                     </div>
                     <div className="col-md-4">
-                        <div className="step">
-                            Dostęp do platformy
+                        <div className="step-container">
+                            <div className="step">
+                                Dostęp do platformy
+                            </div>
+                            <div className="step-arrow" />
                         </div>
                     </div>
                 </div>
@@ -33,6 +39,7 @@ export default class Registered extends React.Component {
                 <div className="row">
                     <div className="col-md-12">
                         <h4>Sprawdź swojego maila i potwierdz rejestrację poprzez kliknięcie w link aktywacyjny.</h4>
+                        <h6>Jeśli nie widzisz wiadomości od nas, to prawdopodobnie znaczy, że wiadomoość wpadła do spamu.</h6>
                     </div>
                 </div>
             </div>
