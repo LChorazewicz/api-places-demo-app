@@ -8,7 +8,6 @@ export default class ActivateAccount extends React.Component {
 
             window.location.href = '/places/login/' + token
         }).catch((rawResponse) => {
-            console.log(rawResponse);
             window.location.href = '/places/already-activated'
         })
     }

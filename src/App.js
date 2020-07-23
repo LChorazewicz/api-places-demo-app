@@ -41,7 +41,8 @@ export default class App extends React.Component {
                         <Route exact path={'/places'}>
                             <Header/>
                             <div className={'container h-100'} style={{minHeight: '100vh'}}>
-                                <LandingPage httpService={this.httpService}/>
+                                <LandingPage httpService={this.httpService}
+                                             widgetConfigProvider={this.props.widgetConfigProvider}/>
                             </div>
                             <Footer/>
                         </Route>
@@ -97,7 +98,8 @@ export default class App extends React.Component {
                         }/>
                         <Route exact path={'/places/account/places-api-and-widget'} render={
                             ({match}) => <PlacesApiAndWidget httpService={this.apiAccountRestService}
-                                                             token={match.params.token}/>
+                                                             apiConfigProvider={this.props.apiConfigProvider}
+                                                             widgetConfigProvider={this.props.widgetConfigProvider}/>
                         }/>
                         <Route exact path={'/places/account/services'} render={
                             ({match}) => <Services httpService={this.apiAccountRestService} token={match.params.token}/>

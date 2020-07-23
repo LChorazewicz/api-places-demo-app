@@ -12,17 +12,41 @@ export default class PlacesApiAndWidget extends React.Component {
             window.location.href = '/places';
         }
 
-        const token = '' +
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODk5MTA3NjcsImV4cCI6MTYxMjgwNjc2NywiYWNjb3VudF91dWl' +
-            'kIjoibGVzemVrLmNob3JhemV3aWN6QGdtYWlsLmNvbSJ9.b9t4IRrP_MDHTc18X-v7nwjbZLhotBeGbyrpAAHjcgYHjBiYEvLhJ0' +
-            '6mIOcli761jYFb4nSAtqjlrbkmZ2A-dlPFbaD7Sdv0ul4RiSp1nEGoSps6fvthqscwoiPIbt7CG-RpPGFxsTccCtMkbqpWUeTQQ-' +
-            'fmnNijWCxHLu7moe6924YVJr3VkAJ7eqrbgMPzkyGtv34vOpKTqGBWYdYsGdTTqKVr0lsub9KkDoT_Kpe_xdzKALEFMaljXii3aw' +
-            '8xn0bj9basmuPerf--lFeHXkyvavRU_2OwiByAmRmkT4W8Q_l8lCVksvCfM40fMEgp1aekyy2KnuB35MXhWlCaOQ';
-
-        this.setState({token: token})
+        this.setState({token: this.props.widgetConfigProvider.getWidgetToken()})
 
         this.setState({
-            widget: '<script type="text/javascript" src="https://api.softwareservice.pl/v1/rest/places/widget/code?t=' + token + '" />'
+            widget: '<script>' +
+                '        let xmlHttp = new XMLHttpRequest(),' +
+                '            url = ' + this.props.apiConfigProvider.getApiUrl() + ';' +
+                '        xmlHttp.open("GET", url, true);' +
+                '        xmlHttp.setRequestHeader("Authorization", "Bearer ' + this.props.apiConfigProvider.getApiToken() +
+                '        xmlHttp.send(null);' +
+                '        xmlHttp.onreadystatechange = function () {' +
+                '            if (xmlHttp.readyState !== 4) {' +
+                '                return;' +
+                '            }' +
+                '            let js = xmlHttp.response,' +
+                '                oScript = document.createElement("script"),' +
+                '                oScriptText = document.createTextNode(js);' +
+                '            oScript.appendChild(oScriptText);' +
+                '            document.body.appendChild(oScript);' +
+                '        }' +
+                '    </script>' +
+                '<script>let id = \'widget-places-app\',' +
+                '            token = ' + this.props.widgetConfigProvider.getWidgetToken() + ';' +
+                '        (function (id, token, callback) {' +
+                '            let widget = setInterval(function () {' +
+                '                // eslint-disable-next-line no-undef' +
+                '                let instance = typeof PlacesWidget !== \'undefined\' ? PlacesWidget.default : null;' +
+                '                if(!instance){' +
+                '                    return;' +
+                '                }' +
+                '                (instance.new({id: id, token: token, callback: callback})).render();' +
+                '                clearInterval(widget);' +
+                '            }, 0);' +
+                '        })(id, token, function (callbackParams) {' +
+                '            console.log(callbackParams);' +
+                '        });</script>'
         })
     }
 

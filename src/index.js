@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import ConfigProvider from "./ConfigProvider";
+import ApiConfigProvider from "./ConfigProvider";
 import ApiRestService from "./service/ApiRestService";
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import AccountConfigProvider from "./AccountConfigProvider";
-const config = new ConfigProvider(),
-    http = new ApiRestService(config),
+import WidgetConfigProvider from "./WidgetConfigProvider";
+const apiConfigProvider = new ApiConfigProvider(),
+    widgetConfigProvider = new WidgetConfigProvider(),
+    http = new ApiRestService(apiConfigProvider),
     accountHttp = new ApiRestService(new AccountConfigProvider());
 
 ReactDOM.render(
@@ -16,7 +18,8 @@ ReactDOM.render(
         <App
             apiRestService={http}
             apiAccountRestService={accountHttp}
-            config={config}
+            apiConfigProvider={apiConfigProvider}
+            widgetConfigProvider={widgetConfigProvider}
         />
     </React.StrictMode>,
     document.getElementById('root')

@@ -9,23 +9,28 @@ export default class Dashboard extends React.Component {
         }
     }
 
-
     handleInit() {
         return {
-            widget: {
-                limit: 200,
-                usage: 20
-            },
-            api: {
-                limit: 200,
-                usage: 30
+            current:{
+                period: {
+                    name: 'Październik 2020',
+                },
+                widget: {
+                    limit: 200,
+                    usage: 20
+                },
+                api: {
+                    limit: 200,
+                    usage: 30
+                }
             }
         }
     }
 
     render() {
-        const api = this.handleInit().api,
-            widget = this.handleInit().widget,
+        const info = this.handleInit(),
+            api = info.current.api,
+            widget = info.current.widget,
             apiPercent = api.usage / api.limit * 100,
             widgetPercent = widget.usage / widget.limit * 100;
 
@@ -34,7 +39,7 @@ export default class Dashboard extends React.Component {
                 <LoggedHeader/>
                 <div className={'container h-100'} style={{minHeight: '100vh'}}>
                     <h3>
-                        Statystyki użycia platformy w obecnym okresie rozliczeniowym - Październik 2020
+                        Statystyki użycia platformy w obecnym okresie rozliczeniowym - {info.current.period.name}
                     </h3><br/>
                     <div className="row">
                         <table className="table table-striped table-bordered col-md-12">
@@ -46,7 +51,7 @@ export default class Dashboard extends React.Component {
                             </thead>
                             <tbody>
 
-                            <tr >
+                            <tr>
                                 <td>{apiPercent}% ({api.usage} / {api.limit})</td>
                                 <td>{widgetPercent}% ({widget.usage} / {widget.limit})</td>
                             </tr>

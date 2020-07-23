@@ -12,14 +12,11 @@
     <title>PlacesApi & PlacesWidget</title>
     <script>
         let xmlHttp = new XMLHttpRequest(),
-            url = 'http://api.softwareservice.local:81/rest/v1/places/widget';
+            url = '%REACT_APP_WIDGET_URL%',
+            token = "Bearer %REACT_APP_WIDGET_TOKEN%";
 
         xmlHttp.open("GET", url, true);
-        xmlHttp.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODczMDM3NTEs" +
-            "ImV4cCI6MTYxMDE5OTc1MSwiYWNjb3VudF91dWlkIjoibC5jaG9yYXpld2ljejEyIn0.kSSOPPW6O3dBMD_DX-xHIXrGbmhuR97lhGMu_" +
-            "MRt1F1S9-42sZWp_xYvwszWpM6j7VAVDmPS3JdhHIufw_HBVYzYH8oOqRBhFFo0Q8yE9ltpDA6Kf8LLVkSIWUH74Yy9jAbuoILIAQpdTE1f" +
-            "orCtcP653hh_W3o9xtPXkWvAzNy_ttcod-YUs55qufDEcmQWU5FkQvhZ99A7DyTaMgseVJy9rqEWJFZnWLHnNMu0bz3ur4v2mJqM1ssVVlX" +
-            "EPBdWCbiCpHeLuULiylP5a9GXq4y93FXIrK8qp5n5CR-ubn1nxW7JGOcaOXAaWuWxwi_EakFX0yeupJZThTMTh3V07A");
+        xmlHttp.setRequestHeader("Authorization", token);
         xmlHttp.send(null);
 
         xmlHttp.onreadystatechange = function () {

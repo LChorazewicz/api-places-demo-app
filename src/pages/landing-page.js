@@ -15,11 +15,7 @@ export default class LandingPage extends React.Component {
 
     componentDidMount() {
         let id = 'widget-places-app',
-            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODczMDM3NTEsImV4cCI6MTYxMDE5OTc1MSwiYWNjb3VudF91dW' +
-                'lkIjoibC5jaG9yYXpld2ljejEyIn0.kSSOPPW6O3dBMD_DX-xHIXrGbmhuR97lhGMu_MRt1F1S9-42sZWp_xYvwszWpM6j7VAVDmPS3J' +
-                'dhHIufw_HBVYzYH8oOqRBhFFo0Q8yE9ltpDA6Kf8LLVkSIWUH74Yy9jAbuoILIAQpdTE1forCtcP653hh_W3o9xtPXkWvAzNy_ttcod-' +
-                'YUs55qufDEcmQWU5FkQvhZ99A7DyTaMgseVJy9rqEWJFZnWLHnNMu0bz3ur4v2mJqM1ssVVlXEPBdWCbiCpHeLuULiylP5a9GXq4y93' +
-                'FXIrK8qp5n5CR-ubn1nxW7JGOcaOXAaWuWxwi_EakFX0yeupJZThTMTh3V07A';
+            token = this.props.widgetConfigProvider.getWidgetToken();
 
         let $this = this;
         (function (id, token, callback) {
