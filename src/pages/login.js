@@ -25,7 +25,10 @@ export default class Login extends React.Component {
         }
 
         if (formIsValid) {
-            this.props.httpService.get(`/token?login=` + email + '&password=' + password).then(res => {
+            this.props.httpService.post(`/token`, JSON.stringify({
+                login: email,
+                password: password
+            })).then(res => {
                 this.handleLoginWithToken(res.data.token);
                 window.location.href = '/places/account/dashboard'
             }).catch((rawResponse) => {
