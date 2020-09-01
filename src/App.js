@@ -21,6 +21,9 @@ export default class App extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.appConfigProvider = this.props.appConfigProvider;
+
         this.httpService = this.props.apiRestService.getInstance();
 
         const token = localStorage.getItem('token')
@@ -42,7 +45,7 @@ export default class App extends React.Component {
                             <Header/>
                             <div className={'container h-100'} style={{minHeight: '100vh'}}>
                                 <LandingPage httpService={this.httpService}
-                                             widgetConfigProvider={this.props.widgetConfigProvider}/>
+                                             appConfigProvider={this.props.appConfigProvider}/>
                             </div>
                             <Footer/>
                         </Route>
@@ -97,9 +100,7 @@ export default class App extends React.Component {
                                                     token={match.params.token}/>
                         }/>
                         <Route exact path={'/places/account/places-api-and-widget'} render={
-                            ({match}) => <PlacesApiAndWidget httpService={this.apiAccountRestService}
-                                                             apiConfigProvider={this.props.apiConfigProvider}
-                                                             widgetConfigProvider={this.props.widgetConfigProvider}/>
+                            ({match}) => <PlacesApiAndWidget customerConfigProvider={this.props.customerConfigProvider}/>
                         }/>
                         <Route exact path={'/places/account/services'} render={
                             ({match}) => <Services httpService={this.apiAccountRestService} token={match.params.token}/>

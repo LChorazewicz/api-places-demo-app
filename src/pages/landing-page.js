@@ -15,7 +15,7 @@ export default class LandingPage extends React.Component {
 
     componentDidMount() {
         let id = 'widget-places-app',
-            token = this.props.widgetConfigProvider.getWidgetToken();
+            token = this.props.appConfigProvider.getAppWidgetToken();
 
         let $this = this;
         (function (id, token, callback) {

@@ -5,6 +5,6 @@ export default class ConfigProvider {
     };
 
     getApiToken() {
-        return process.env.REACT_APP_API_TOKEN;
+        return null;
     }
 }

@@ -7,19 +7,23 @@ import ApiRestService from "./service/ApiRestService";
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import AccountConfigProvider from "./AccountConfigProvider";
-import WidgetConfigProvider from "./WidgetConfigProvider";
+import AppConfigProvider from "./config/AppConfigProvider";
+import CustomerConfigProvider from "./config/CustomerConfigProvider";
+
 const apiConfigProvider = new ApiConfigProvider(),
-    widgetConfigProvider = new WidgetConfigProvider(),
     http = new ApiRestService(apiConfigProvider),
     accountHttp = new ApiRestService(new AccountConfigProvider());
+
+    const appConfigProvider = new AppConfigProvider();
+    const customerConfigProvider = new CustomerConfigProvider();
 
 ReactDOM.render(
     <React.StrictMode>
         <App
+            appConfigProvider={appConfigProvider}
             apiRestService={http}
             apiAccountRestService={accountHttp}
-            apiConfigProvider={apiConfigProvider}
-            widgetConfigProvider={widgetConfigProvider}
+            customerConfigProvider={customerConfigProvider}
         />
     </React.StrictMode>,
     document.getElementById('root')

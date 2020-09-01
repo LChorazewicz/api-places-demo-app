@@ -4,7 +4,7 @@ import LoggedHeader from "../../component/LoggedHeader";
 
 export default class PlacesApiAndWidget extends React.Component {
     state = {
-        token: ''
+        apiToken: ''
     }
 
     componentDidMount() {
@@ -12,14 +12,14 @@ export default class PlacesApiAndWidget extends React.Component {
             window.location.href = '/places';
         }
 
-        this.setState({token: this.props.widgetConfigProvider.getWidgetToken()})
+        this.setState({apiToken: this.props.customerConfigProvider.getCustomerApiToken()})
 
         this.setState({
             widget: '<script>' +
                 '        let xmlHttp = new XMLHttpRequest(),' +
-                '            url = ' + this.props.apiConfigProvider.getApiUrl() + ';' +
+                '            url = ' + this.props.customerConfigProvider.getCustomerApiUrl() + ';' +
                 '        xmlHttp.open("GET", url, true);' +
-                '        xmlHttp.setRequestHeader("Authorization", "Bearer ' + this.props.apiConfigProvider.getApiToken() +
+                '        xmlHttp.setRequestHeader("Authorization", "Bearer ' + this.props.customerConfigProvider.getCustomerApiToken() +
                 '        xmlHttp.send(null);' +
                 '        xmlHttp.onreadystatechange = function () {' +
                 '            if (xmlHttp.readyState !== 4) {' +
@@ -33,7 +33,7 @@ export default class PlacesApiAndWidget extends React.Component {
                 '        }' +
                 '    </script>' +
                 '<script>let id = \'widget-places-app\',' +
-                '            token = ' + this.props.widgetConfigProvider.getWidgetToken() + ';' +
+                '            token = ' + this.props.customerConfigProvider.getCustomerWidgetToken() + ';' +
                 '        (function (id, token, callback) {' +
                 '            let widget = setInterval(function () {' +
                 '                // eslint-disable-next-line no-undef' +
