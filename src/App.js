@@ -29,7 +29,7 @@ export default class App extends React.Component {
         const token = localStorage.getItem('token')
 
         if (token) {
-            this.apiAccountRestService = this.props.apiRestService.getInstance();
+            this.apiAccountRestService = this.props.apiAccountRestService.getInstance();
         }
     }
 

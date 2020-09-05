@@ -75,34 +75,35 @@ export default class Services extends React.Component {
     handleSelect(item) {
         const internalId = item.internalId;
 
-        this.setState({
-            selectedServices:
-                this.state.selectedServices.includes(internalId) ?
-                    this.state.selectedServices.filter(i => i !== internalId) :
-                    [...this.state.selectedServices, internalId],
-        });
-
-        console.log(this.state.selectedServices);
-
-        let sum = 0;
-        let $this = this;
-        this.state.services.forEach(function (item) {
-            console.log(item)
-            if($this.state.selectedServices.includes(item.internalId)){
-                console.log('zawiera', item)
-                sum += (item.toPay);
-            }
-        })
-        this.setState({toPay: sum});
+        if(this.state.selectedServices.includes(internalId)){
+            this.setState({
+                selectedServices: this.state.selectedServices.filter(i => i !== internalId)
+            });
+        }else{
+            this.setState({
+                selectedServices: [...this.state.selectedServices, internalId],
+            }, () => {
+                let sum = 0;
+                let $this = this;
+                this.state.services.forEach(function (item) {
+                    if($this.state.selectedServices.includes(item.internalId)){
+                        sum += (item.toPay);
+                    }
+                })
+                this.setState({toPay: sum});
+            });
+        }
     }
 
     getSelectedPaymentInternalIds(){
         return this.state.selectedServices.map(function (item) {
-            return item.internalId;
+            return item;
         })
     }
 
     render() {
+        let $this = this;
+
         const isSomethingToPay = this.state.services.length > 0,
             table = <table className="table table-striped table-bordered col-md-12">
                 <thead className={'thead-dark'}>
@@ -144,7 +145,6 @@ export default class Services extends React.Component {
 
                 </tbody>
             </table>;
-        let $this = this;
 
         return <div>
             <LoggedHeader/>

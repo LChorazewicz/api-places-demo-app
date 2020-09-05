@@ -61,7 +61,7 @@ export default class PlacesApiAndWidget extends React.Component {
                                 <div className="form-group">
                                     <h3 className={'text-left'}>Token API</h3>
                                     <label htmlFor="access-token" className={'leftLabel'}>Access token</label>
-                                    <textarea className="form-control" id="access-token" value={this.state.token}
+                                    <textarea className="form-control" id="access-token" value={this.state.apiToken}
                                               required={true} readOnly={true} style={{height: '180px'}}/>
                                 </div>
                             </div>

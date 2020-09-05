@@ -2,20 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import ApiConfigProvider from "./ConfigProvider";
 import ApiRestService from "./service/ApiRestService";
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-import AccountConfigProvider from "./AccountConfigProvider";
+import AccountConfigProvider from "./config/AccountConfigProvider";
 import AppConfigProvider from "./config/AppConfigProvider";
 import CustomerConfigProvider from "./config/CustomerConfigProvider";
 
-const apiConfigProvider = new ApiConfigProvider(),
+const apiConfigProvider = new AppConfigProvider(),
     http = new ApiRestService(apiConfigProvider),
     accountHttp = new ApiRestService(new AccountConfigProvider());
 
     const appConfigProvider = new AppConfigProvider();
-    const customerConfigProvider = new CustomerConfigProvider();
+    const customerConfigProvider = new CustomerConfigProvider(
+        's',
+        localStorage.getItem('token')//todo: pobrać token
+    );
 
 ReactDOM.render(
     <React.StrictMode>

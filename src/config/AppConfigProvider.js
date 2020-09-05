@@ -6,4 +6,12 @@ export default class AppConfigProvider {
     getAppWidgetToken(){
         return process.env.REACT_APP_WIDGET_TOKEN;
     }
+
+    getXAppId(){
+        return process.env.REACT_APP_APP_ID
+    }
+
+    getApiToken(){
+        return null;
+    }
 }

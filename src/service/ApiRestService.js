@@ -3,11 +3,12 @@ import axios from "axios";
 export default class ApiRestService {
     constructor(config) {
         let headers = {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'X-App-Id': config.getXAppId()
         };
 
-        if(config.getApiToken()){
-            headers['Authorization'] = `Bearer ${config.getApiToken()}`;
+        if(typeof config.getApiToken() !== "undefined" && config.getApiToken()){
+            headers['Authorization'] = `${config.getApiToken()}`;
         }
 
         this.http = axios.create({

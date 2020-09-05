@@ -14,10 +14,12 @@
     <script>
         let xmlHttp = new XMLHttpRequest(),
             url = '%REACT_APP_WIDGET_URL%',
+            appId = "%REACT_APP_APP_ID%",
             token = "Bearer %REACT_APP_WIDGET_TOKEN%";
 
         xmlHttp.open("GET", url, true);
         xmlHttp.setRequestHeader("Authorization", token);
+        xmlHttp.setRequestHeader("X-App-Id", appId);
         xmlHttp.send(null);
 
         xmlHttp.onreadystatechange = function () {
