@@ -15,11 +15,13 @@
   },
   "homepage": ".",
   "scripts": {
-    "start": "PORT=3000 HOST=127.0.0.1 react-scripts start",
+    "start": "PORT=3000 react-scripts start",
+    "start-with-docker": "PORT=3000 HOST=0.0.0.0 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://api:5002",
   "eslintConfig": {
     "extends": "react-app"
   },
