@@ -1,11 +1,6 @@
 import * as React from "react";
-import Header from "../component/Header";
-import Footer from "../component/Footer";
 
 export default class Login extends React.Component {
-    state = {
-        lastError: ''
-    }
 
     handleLogin(event) {
         event.preventDefault();
@@ -30,12 +25,12 @@ export default class Login extends React.Component {
                 password: password
             })).then(res => {
                 this.handleLoginWithToken(res.data.token);
-                window.location.href = '/places/account/dashboard'
+                window.location.href = '/places/platform/dashboard'
             }).catch((rawResponse) => {
                 const message = rawResponse.response.data.error;
 
                 if (message) {
-                    this.setState({'lastError': message});
+                    this.props.notificator.notifySuccess(message);
                 }
             })
         }
@@ -45,7 +40,7 @@ export default class Login extends React.Component {
         this.handleLoginWithToken(this.props.token);
 
         if (this.props.token && localStorage.getItem('token')) {
-            window.location.href = '/places/account/dashboard'
+            window.location.href = '/places/platform/dashboard'
         }
     }
 
@@ -56,23 +51,13 @@ export default class Login extends React.Component {
     }
 
     render() {
-        let errorMessage = '';
-
-        if (this.state.lastError) {
-            errorMessage = <div className="alert alert-danger" role="alert" style={{lineHeight: '19px'}}>
-                {this.state.lastError}
-            </div>
-        }
-
         return (
             <div>
-                <Header/>
                 <div className={'container h-100'} style={{minHeight: '100vh'}}>
                     <div className={'row'}>
                         <div className="col-md-3"/>
                         <form className={'col-md-6'} onSubmit={event => this.handleLogin(event)}>
                             <h3>Logowanie</h3>
-                            {errorMessage}
                             <div className="form-group">
                                 <label htmlFor="email" className={'leftLabel'}>Login</label>
                                 <input type="email" className="form-control" id="email"
@@ -91,7 +76,6 @@ export default class Login extends React.Component {
                         <div className="col-md-3"/>
                     </div>
                 </div>
-                <Footer/>
             </div>
         );
     }

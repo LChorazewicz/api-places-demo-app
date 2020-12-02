@@ -39,16 +39,19 @@ export default class Register extends React.Component {
         }
 
         if (formIsValid) {
+            const body = JSON.stringify({
+                name: name,
+                email: email,
+                phone: phone,
+                password: password,
+                regulations_accepted: regulationsAccepted,
+            });
+
+            console.log(body, )
             this.props.httpService.post(`/register`,
-                JSON.stringify({
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    password: password,
-                    regulations_accepted: regulationsAccepted,
-                })
+                body
             ).then(res => {
-                window.location.href = '/places/registered'
+                window.location.href = '/places/platform/registered'
             }).catch((rawResponse) => {
                 const message = rawResponse.response.data.error;
 
@@ -95,7 +98,7 @@ export default class Register extends React.Component {
                     <div className="form-check floatLeft">
                         <input type="checkbox" className="form-check-input" id="regulation" required={true}/>
                         <label className="form-check-label" htmlFor="regulation">Znam i akceptuję <Link
-                            to={'/places/regulations'} style={{color: '#e3ab40', fontWeight: 900}}>regulamin
+                            to={'/places/platform/regulations'} style={{color: '#e3ab40', fontWeight: 900}}>regulamin
                             serwisu</Link></label>
                     </div>
                     <button className={'floatLeft btn registerButton col-md-12'}

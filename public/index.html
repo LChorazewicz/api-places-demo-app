@@ -10,28 +10,32 @@
     <meta name="keywords"
           content="Api miejscowości, api ulic, places api, streets api, miejscowości, ulice, widget miejscowości, mapa miejscowości, softwareservice.pl software service"/>
     <base href="/" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <title>PlacesApi & PlacesWidget</title>
     <script>
-        let xmlHttp = new XMLHttpRequest(),
-            url = '%REACT_APP_WIDGET_URL%',
-            appId = "%REACT_APP_APP_ID%",
-            token = "Bearer %REACT_APP_WIDGET_TOKEN%";
+        if(location.pathname === '/places'){
+            let xmlHttp = new XMLHttpRequest(),
+                url = '%REACT_APP_WIDGET_URL%',
+                appId = "%REACT_APP_APP_ID%",
+                token = "Bearer %REACT_APP_WIDGET_TOKEN%";
 
-        xmlHttp.open("GET", url, true);
-        xmlHttp.setRequestHeader("Authorization", token);
-        xmlHttp.setRequestHeader("X-App-Id", appId);
-        xmlHttp.send(null);
+            xmlHttp.open("GET", url, true);
+            xmlHttp.setRequestHeader("Authorization", token);
+            xmlHttp.setRequestHeader("X-App-Id", appId);
+            xmlHttp.send(null);
 
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState !== 4) {
-                return;
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState !== 4) {
+                    return;
+                }
+
+                let js = xmlHttp.response,
+                    oScript = document.createElement("script"),
+                    oScriptText = document.createTextNode(js);
+                oScript.appendChild(oScriptText);
+                document.body.appendChild(oScript);
             }
-
-            let js = xmlHttp.response,
-                oScript = document.createElement("script"),
-                oScriptText = document.createTextNode(js);
-            oScript.appendChild(oScriptText);
-            document.body.appendChild(oScript);
         }
     </script>
 </head>

@@ -20,6 +20,10 @@ export default class CustomerConfigProvider {
         return this.widgetToken;
     }
 
+    getWidgetScriptUrl(){
+        return process.env.REACT_APP_WIDGET_URL;
+    }
+
     getXAppId(){
         return process.env.REACT_APP_APP_ID
     }

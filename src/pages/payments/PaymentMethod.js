@@ -1,6 +1,6 @@
-import Footer from "../../component/Footer";
+import Footer from "../../component/layout/Footer";
 import * as React from "react";
-import LoggedHeader from "../../component/LoggedHeader";
+import LoggedHeader from "../../component/layout/LoggedHeader";
 
 export default class PaymentMethod extends React.Component {
     state = {
@@ -8,10 +8,6 @@ export default class PaymentMethod extends React.Component {
     };
 
     componentDidMount() {
-        if (!localStorage.getItem('token')) {
-            window.location.href = '/places';
-        }
-
         if(this.props.services.length < 1){
             window.location.href = '/places';
         }

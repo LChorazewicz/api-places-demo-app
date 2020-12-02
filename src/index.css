@@ -16,12 +16,12 @@ body, html {
     font-family: LightLatoFont, serif;
 }
 
-.bold-orange-link{
+.bold-orange-link {
     color: #e3ab40;
     font-weight: 900;
 }
 
-.about-header{
+.about-header {
     font-weight: 900;
 }
 
@@ -36,32 +36,55 @@ body, html {
     padding: 0 5px;
 }
 
-.textAlignLeft{
+.textAlignLeft {
     text-align: left;
 }
 
-.textAlignRight{
+.textAlignRight {
     text-align: right;
 }
 
-.textAlignCenter{
+.textAlignCenter {
     text-align: center;
 }
 
-.floatLeft{
+.floatLeft {
     float: left;
 }
-a, input[type='checkbox']{
+
+a, input[type='checkbox'] {
     outline: none;
 }
-a.registerButton, button.registerButton{
+
+a.registerButton, button.registerButton {
     background-color: #e3ab40;
     color: white;
     font-weight: 900;
     padding-top: 8px;
 }
 
-.custom-select2{
+Button.button, a.button {
+    color: #e3ab40;
+    border-color: #e3ab40;
+    text-transform: none;
+    outline: none;
+    padding: 6px 30px 5px;
+}
+
+Button.button:hover {
+    background-color: #e3ab40;
+    color: whitesmoke;
+}
+
+.btn-orange {
+    background-color: #e3ab40;
+}
+
+.black-text-color {
+    color: #2e3436;
+}
+
+.custom-select2 {
     display: inline-block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
@@ -79,7 +102,7 @@ a.registerButton, button.registerButton{
     appearance: none;
 }
 
-.image{
+.image {
     background-image: url("https://apps.softwareservice.pl/assets/logo.png");
     width: 50px;
     height: 50px;
@@ -88,32 +111,36 @@ a.registerButton, button.registerButton{
     background-size: cover;
 }
 
-.image::after{
+.image::after {
     content: 'PlacesApi';
-    margin-left: 42px;
+    margin-left: 64px;
     vertical-align: -44%;
     font-family: 'LightLatoFont', serif;
     font-weight: 900;
     color: #e3ab40 !important;
 }
 
-.navbar.fixed-bottom{
+.landing-image.image::after {
+    margin-left: 46px;
+}
+
+.navbar.fixed-bottom {
     background-color: #c0c0c0;
     padding: 50px 0;
 }
 
-.leftLabel{
+.leftLabel {
     margin: 0 !important;
     float: left;
     text-indent: 2px;
     font-size: 11px;
 }
 
-.step-container{
+.step-container {
     display: flex;
 }
 
-.step{
+.step {
     background-color: #eeeeee;
     border: 1px solid #eeeeee;
     width: calc(100% - 10px);
@@ -122,7 +149,7 @@ a.registerButton, button.registerButton{
     line-height: 50px;
 }
 
-.step-arrow{
+.step-arrow {
     height: 0;
     border-style: solid;
     border-width: 25px 0 25px 15px;
@@ -130,7 +157,7 @@ a.registerButton, button.registerButton{
     margin-top: 30px;
 }
 
-.actual-step{
+.actual-step {
     background-color: #e3ab40;
     width: calc(100% - 10px);
     height: 50px;
@@ -138,7 +165,7 @@ a.registerButton, button.registerButton{
     line-height: 50px;
 }
 
-.actual-step-arrow{
+.actual-step-arrow {
     height: 0;
     border-style: solid;
     border-width: 25px 0 25px 15px;
@@ -150,11 +177,84 @@ a.registerButton, button.registerButton{
     color: #e3ab40 !important;
     font-family: 'LightLatoFont', serif;
     font-weight: 900;
+    outline: none !important;
 }
-.payment-method{
+
+.card-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.payment-method {
     transition: background-color 0.2s linear;
     border: 1px solid #e8e8e8;
 }
-.payment-method:hover{
+
+.payment-method:hover {
     background-color: #eeeeee;
+}
+
+.plan {
+    height: 340px;
+    margin-top: 10px;
+    border-color: #c9c9c9;
+    width: 230px;
+}
+
+.active-plan {
+    height: 360px;
+    margin: 0;
+    background-color: #e3ab4017;
+    border-color: #b99d83;
+    width: 240px;
+}
+
+.plan-not-activated a, .active-plan a {
+    bottom: 14px;
+    position: absolute;
+    left: 24%;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.plan {
+    cursor: pointer;
+}
+
+.disabled-plan {
+    background-color: #f6f6f6;
+}
+
+.pricing span {
+    text-align: left;
+    float: left;
+    line-height: 30px;
+}
+
+.pricing span.property:before {
+    content: '';
+    margin-right: 3px;
+    margin-bottom: 2px;
+    height: 8px;
+    width: 8px;
+    background-color: #e3ab40;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.netGrossSwitch {
+    float: right;
+}
+
+.menu span {
+    font-size: 14px;
+}
+
+.menu .MuiListItemIcon-root {
+    width: 38px;
+}
+
+.menu .MuiListItemIcon-root svg {
+    width: 20px;
+    height: 20px;
 }

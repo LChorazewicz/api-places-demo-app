@@ -45,10 +45,10 @@ export default class LandingPage extends React.Component {
                             style={{fontFamily: 'LightLatoFont', fontSize: '20px'}}>Zintegruj się z
                             PlacesAPI lub podepnij PlacesWidget<br/>na swojej stronie internetowej.</h3>
                         <br/>
-                        <Link to={'/places/register'}
+                        <Link to={'/places/platform/register'}
                               className={'floatLeft btn registerButton col-sm-12 col-md-12 col-lg-12 col-xl-6'}
                               style={{fontFamily: 'StandardLatoFont', fontWeight: 700}} color={'orange'}
-                              href={'/places/register'}>Załóż
+                              href={'/places/platform/register'}>Załóż
                             darmowe konto</Link>
                     </div>
                     <div className="col-md">

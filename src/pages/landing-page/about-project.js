@@ -19,7 +19,7 @@ export default class AboutProject extends React.Component {
                             dane. <br/><br/><br/>
                             <h4 className={'textAlignCenter about-header'}>Potrzeba biznesowa</h4>
                             Idąc za ciosem, udostępniliśmy PlacesApi dla całego świata. Rejestrując się
-                            <Link to={'/places/register'} className={'bold-orange-link'} href={'/places/register'}> tutaj </Link>
+                            <Link to={'/places/platform/register'} className={'bold-orange-link'} href={'/places/platform/register'}> tutaj </Link>
                             możesz uzyskać dostęp do PlacesApi i zintegrować się z nim. Istnieje również możliwość
                             skorzystania z PlacesWidget
                             gdzie w 3 prostych krokach wstawisz gotowy formularz na swoją stronę, w którym można
