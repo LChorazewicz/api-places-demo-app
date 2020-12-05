@@ -83,8 +83,8 @@ export default class App extends React.Component {
                             ({match}) => <ActivateAccount httpService={this.httpService} token={match.params.token}/>
                         }>
                         </Route>
-                        <Route exact path={'/places/platform/login/:token'} render={
-                            ({match}) => <Login httpService={this.httpService} token={match.params.token}/>
+                        <Route exact path={'/places/platform/login'} render={
+                            ({match}) => <Login httpService={this.httpService}/>
                         }>
                         </Route>
                         <Route exact path={'/places/platform/login'}>

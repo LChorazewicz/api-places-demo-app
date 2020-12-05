@@ -4,11 +4,9 @@ export default class ActivateAccount extends React.Component {
     handle(){
         this.props.httpService.post(`/activate/` + this.props.token
         ).then(res => {
-            const token = res.data.token;
-
-            window.location.href = '/places/platform/login/' + token
+            window.location.href = '/places/platform/login'
         }).catch((rawResponse) => {
-            window.location.href = '/places/platform/already-activated'
+            window.location.href = '/places/platform/login'
         })
     }
     componentDidMount() {

@@ -37,9 +37,7 @@ export default class Login extends React.Component {
     }
 
     componentDidMount() {
-        this.handleLoginWithToken(this.props.token);
-
-        if (this.props.token && localStorage.getItem('token')) {
+        if (localStorage.getItem('token')) {
             window.location.href = '/places/platform/dashboard'
         }
     }

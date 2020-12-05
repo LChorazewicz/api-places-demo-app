@@ -8,7 +8,7 @@ export default class ApiRestService {
         };
 
         if(typeof config.getApiToken() !== "undefined" && config.getApiToken()){
-            headers['Authorization'] = `${config.getApiToken()}`;
+            headers['Authorization'] = `Bearer ${config.getApiToken()}`;
         }
 
         this.http = axios.create({
